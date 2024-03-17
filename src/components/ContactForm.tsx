@@ -1,9 +1,9 @@
 import {useForm} from 'react-hook-form'
 import { useState, useEffect} from 'react';
 import {DevTool} from '@hookform/devtools'
-import ContactsListPage from './View/View';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import ContactListPage from './View/View';
 
 export const ContactForm = ({ }) => {
   type FormValues = { 
@@ -23,7 +23,8 @@ export const ContactForm = ({ }) => {
     },
   });
 
-  const { register, control, handleSubmit, formState } = form
+  const { register, control, handleSubmit, formState, getValues } = form
+  const [showForm, setShowForm] = useState(false);
   const { errors } = formState  
 
   const onSubmit = (data: FormValues) => {
@@ -34,9 +35,26 @@ export const ContactForm = ({ }) => {
     console.log('Updated contacts list:', contactsList);
   }, [contactsList]); // Log contactsList whenever it changes
 
+  const handleDelete = (index: number) => {
+    setContactsList(prevContacts => prevContacts.filter((_, i) => i !== index));
+  };
+
+  const handleEdit = (index: number) => {
+    // Your edit logic here
+    console.log('Edit contact at index:', index);
+  };
+
+
   return (
     
     <div>
+      <div>
+        <ContactListPage contactsList={contactsList} onDelete={handleDelete} onEdit={handleEdit} />
+        <button onClick={() => setShowForm(!showForm)}>Add new contact</button>
+      </div>
+      
+      {showForm && (
+      <div>
       <h2> Add new contact </h2>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className='form-control'>
@@ -64,11 +82,11 @@ export const ContactForm = ({ }) => {
         <p><button>Add</button></p>
 
       </form>
+      </div>
+      )}
       <DevTool control={control} />
-
-      <Link to="/view-contacts">View Contacts</Link>
-      <ContactsListPage contactsList={contactsList} />
-
     </div>
+
+
   );
 };

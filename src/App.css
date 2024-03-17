@@ -25,6 +25,7 @@ body {
 
 button {
   overflow: visible;
+  border: #474544;
 }
 
 button, select {
@@ -214,6 +215,7 @@ textarea {
   
   #form_button {
     padding: 15px 25px;
+    border: #5A5A5A;
   }
 }
 
@@ -244,4 +246,9 @@ textarea {
 
 .form-control{
   margin-bottom: 10 px; 
+}
+
+.click {
+  color: blue;
+  text-underline-position: below;
 }
