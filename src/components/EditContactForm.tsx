@@ -1,20 +1,36 @@
 import { useNavigate } from "react-router-dom";
 import {useForm} from 'react-hook-form'
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import {DevTool} from '@hookform/devtools'
-import ContactListPage from './View/View';
 import {FormValues} from '../App';
+import {useParams} from "react-router-dom"
 
-export const ContactForm = ({ contactsList, setContactsList}: {contactsList: FormValues[], setContactsList: React.Dispatch<React.SetStateAction<FormValues[]>>}) => {
+export const EditContactForm = ({ contactsList, setContactsList}: {contactsList: FormValues[], setContactsList: React.Dispatch<React.SetStateAction<FormValues[]>>}) => {
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState<FormValues|null>(null);
+  const { id } = useParams();
+
+  useEffect(() => {
+    setCurrentUser(contactsList.find((contact) => contact.phoneNo === id) ?? null);
+  }, []);
+
   const form = useForm<FormValues>({
     defaultValues:{
-      firstName: "",
-      lastName: "",
-      phoneNo: "",
-      landline: ""
+      firstName: currentUser?.firstName,
+      lastName: currentUser?.lastName,
+      phoneNo: currentUser?.phoneNo,
+      landline: currentUser?.landline
     },
   });
+
+  useEffect(() => {
+    if(currentUser){
+      form.setValue('firstName', currentUser.firstName);
+      form.setValue('lastName', currentUser.lastName);
+      form.setValue('phoneNo', currentUser.phoneNo);
+      form.setValue('landline', currentUser.landline);
+    }
+  }, [currentUser]);
 
   const { register, control, handleSubmit, formState } = form
   const { errors } = formState  
@@ -28,18 +44,13 @@ export const ContactForm = ({ contactsList, setContactsList}: {contactsList: For
     });
     form.reset();
     navigate('/')
-  };
-  
-
-  useEffect(() => {
-    console.log('Updated contacts list:', contactsList);
-  }, [contactsList]); // Log contactsList whenever it changes
+  };  
 
   return (
-  
-    <div>    
+    
+    <div>
       <div>
-      <h2> Add new contact </h2>
+      <h2> Edit contact </h2>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className='form-control'>
           <label htmlFor='firstName'>First name</label>
@@ -63,11 +74,13 @@ export const ContactForm = ({ contactsList, setContactsList}: {contactsList: For
           <input type='text' id='landline' {...register('landline')} />
         </div>
 
-        <p><button>Add</button></p>
+        <p><button>Edit</button></p>
 
       </form>
       </div>
       <DevTool control={control} />
     </div>
+
+
   );
 };
