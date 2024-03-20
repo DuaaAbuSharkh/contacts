@@ -14,7 +14,6 @@ interface ContactListViewProps {
 const ContactListView: React.FC<ContactListViewProps> = ({ contactsList, onDelete, onEdit }) => {
   return (
     <div>
-      <h2>Contact List</h2>
       <ul>
         {contactsList.map((contact, index) => (
           <table>

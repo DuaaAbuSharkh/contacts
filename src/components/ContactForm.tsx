@@ -1,7 +1,6 @@
 import {useForm} from 'react-hook-form'
 import { useState, useEffect} from 'react';
 import {DevTool} from '@hookform/devtools'
-import { Link } from 'react-router-dom';
 import React from 'react';
 import ContactListPage from './View/View';
 
@@ -71,6 +70,8 @@ export const ContactForm = ({ }) => {
     
     <div>
       <div>
+      <h2>Contact List</h2>
+      {contactsList.length === 0 && <h3>Theres no contacts</h3>}
         <ContactListPage contactsList={contactsList} onDelete={handleDelete} onEdit={handleEdit} />
         <button onClick={() => setShowForm(!showForm)}>Add new contact</button>
       </div>

@@ -71,6 +71,7 @@ textarea {
 
 button {
   display: block;
+  margin: auto;
   float: right;
   line-height: 24pt;
   padding: 0 20px;
