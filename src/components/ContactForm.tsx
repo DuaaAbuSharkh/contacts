@@ -28,8 +28,15 @@ export const ContactForm = ({ }) => {
   const { errors } = formState  
 
   const onSubmit = (data: FormValues) => {
-    setContactsList(prevContacts => [...prevContacts, data]);
-
+    const updatedContactsList = contactsList.filter(contact => !(contact.firstName === data.firstName && contact.lastName === data.lastName));
+    
+    // Add the edited contact to the list
+    updatedContactsList.push(data);
+  
+    // Set the updated contacts list
+    setContactsList(updatedContactsList);
+  
+    // Reset form values
     form.reset();
   };
   
@@ -55,6 +62,8 @@ export const ContactForm = ({ }) => {
     // Show the form for editing
     setShowForm(true);
   
+    // Remove the contact being edited from the contactsList
+    //setContactsList(prevContacts => prevContacts.filter((_, i) => i !== index));
   };
 
 
