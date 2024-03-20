@@ -17,11 +17,13 @@ const ContactListView: React.FC<ContactListViewProps> = ({ contactsList, onDelet
       <h2>Contact List</h2>
       <ul>
         {contactsList.map((contact, index) => (
-          <li key={index}>
-            {contact.firstName} {contact.lastName} {contact.phoneNo} 
-            <button className="click" onClick={() => onDelete(index)}>Delete</button> {/* Delete button */}
-            <button className="click" onClick={() => onEdit(index)}>Edit</button> {/* Edit button */} 
-          </li>
+          <table>
+          <tr key={index}>
+            <td><button className="click" onClick={() => onDelete(index)}>Delete</button> {/* Delete button */}</td>
+            <td><button className="click" onClick={() => onEdit(index)}>Edit</button> {/* Edit button */} </td>
+            <td>{contact.firstName} {contact.lastName} {contact.phoneNo}</td>
+          </tr>
+          </table>
         ))}
       </ul>
     </div>

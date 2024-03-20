@@ -29,7 +29,10 @@ export const ContactForm = ({ }) => {
 
   const onSubmit = (data: FormValues) => {
     setContactsList(prevContacts => [...prevContacts, data]);
+
+    form.reset();
   };
+  
 
   useEffect(() => {
     console.log('Updated contacts list:', contactsList);
@@ -40,8 +43,18 @@ export const ContactForm = ({ }) => {
   };
 
   const handleEdit = (index: number) => {
-    // Your edit logic here
-    console.log('Edit contact at index:', index);
+    // Get the contact object at the specified index
+    const contactToEdit = contactsList[index];
+  
+    // Set the form values to the values of the contact being edited
+    form.setValue('firstName', contactToEdit.firstName);
+    form.setValue('lastName', contactToEdit.lastName);
+    form.setValue('phoneNo', contactToEdit.phoneNo);
+    form.setValue('landline', contactToEdit.landline);
+  
+    // Show the form for editing
+    setShowForm(true);
+  
   };
 
 

@@ -1,309 +1,107 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
-}@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2044837-jpeg.jpg") center center no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-size: 12pt;
+  font-family: "Spartan";
+  color: #2A293E;
 }
 
-label {
-  font-weight: bold;
-  display: flex;
+.contact-us {
+  background: #f8f4e5;
+  padding: 50px 100px;
+  border-top: 10px solid #f45702;
 }
 
-html {
-  font-family: 'Montserrat', Arial, sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  background: #F2F3EB;
-}
-
-button {
-  overflow: visible;
-}
-
-button, select {
-  text-transform: none;
-}
-
-button, input, select, textarea {
-  color: #5A5A5A;
-  font: inherit;
-  margin: 0;
+label, input, textarea {
+  display: block;
+  width: 100%;
+  font-size: 12pt;
+  line-height: 24pt;
+  font-family: "Spartan";
 }
 
 input {
-  line-height: normal;
+  margin-bottom: 24pt;
 }
 
-textarea {
-  overflow: auto;
+h3 {
+  font-weight: normal;
+  font-size: 10pt;
+  line-height: 24pt;
+  font-style: italic;
+  margin: 0 0 0.5em 0;
 }
 
-#container {
-  border: solid 3px #474544;
-  max-width: 768px;
-  margin: 60px auto;
-  position: relative;
+span {
+  font-size: 8pt;
 }
 
-form {
-  padding: 37.5px;
-  margin: 50px 0;
-}
-
-h1 {
-  color: #474544;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 7px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.underline {
-  border-bottom: solid 2px #474544;
-  margin: -0.512em auto;
-  width: 80px;
-}
-
-.icon_wrapper {
-  margin: 50px auto 0;
-  width: 100%;
-}
-
-.icon {
-  display: block;
-  fill: #474544;
-  height: 50px;
-  margin: 0 auto;
-  width: 50px;
-}
-
-.email {
-  float: right;
-  width: 45%;
-}
-
-input[type='text'], [type='email'], [type ='number'], select, textarea {
-  background: none;
-  border: none;
-  border-bottom: solid 2px #474544;
-  color: #474544;
-  font-size: 1.000em;
-  font-weight: 400;
-  letter-spacing: 1px;
-  margin: 0em 0 1.875em 0;
-  padding: 0 0 0.875em 0;
-  text-transform: uppercase;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-input[type='text']:focus, [type='email']:focus, textarea:focus {
-  outline: none;
-  padding: 0 0 0.875em 0;
-}
-
-.message {
-  float: none;
-}
-
-.name {
-  float: left;
-  width: 45%;
-}
-
-select {
-  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
-  outline: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-.subject {
-  width: 100%;
-}
-
-.telephone {
-  width: 100%;
-}
-
-textarea {
-  line-height: 150%;
-  height: 150px;
-  resize: none;
-  width: 100%;
-}
-
-::-webkit-input-placeholder {
-  color: #474544;
-}
-
-:-moz-placeholder { 
-  color: #474544;
-  opacity: 1;
-}
-
-::-moz-placeholder {
-  color: #474544;
-  opacity: 1;
-}
-
-:-ms-input-placeholder {
-  color: #474544;
-}
-
-#form_button {
-  background: none;
-  border: solid 2px #474544;
-  color: #474544;
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.875em;
+em {
+  color: #f45702;
   font-weight: bold;
+}
+
+input, textarea {
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background: #f8f4e5;
+  padding-left: 5px;
   outline: none;
-  padding: 20px 35px;
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
 }
 
-#form_button:hover {
-  background: #474544;
-  color: #F2F3EB;
+input:focus, textarea:focus {
+  border: 1px solid #6bd4b1;
 }
 
-@media screen and (max-width: 768px) {
-  #container {
-    margin: 20px auto;
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  h1 {
-    font-size: 26px;
-  }
-  
-  .underline {
-    width: 68px;
-  }
-  
-  #form_button {
-    padding: 15px 25px;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  h1 {
-    font-size: 18px;
-  }
-  
-  .icon {
-    height: 35px;
-    width: 35px;
-  }
-  
-  .underline {
-    width: 53px;
-  }
-  
-  input[type='text'], [type='email'], select, textarea {
-    font-size: 0.875em;
-  }
-}
-
-
-.form-control{
-  margin-bottom: 10 px;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+textarea {
+  resize: none;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  display: block;
+  float: right;
+  line-height: 24pt;
+  padding: 0 20px;
+  border: none;
+  background: #f45702;
+  color: white;
+  letter-spacing: 2px;
+  transition: 0.2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  outline: none;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background: inherit;
+  color: #f45702;
+  border-bottom: 2px solid #f45702;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+::selection {
+  background: #ffc7b8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  border: 1px solid #6bd4b1;
+  -webkit-text-fill-color: #2A293E;
+  -webkit-box-shadow: 0 0 0px 1000px #f8f4e5 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .click {
@@ -325,6 +123,4 @@ button:focus-visible {
   font-size: 10 px;
   text-align: left;
 }
-
-
 
